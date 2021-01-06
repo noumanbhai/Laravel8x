@@ -11,10 +11,17 @@
     </x-slot>
 
     <div class="py-12">
-
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
+                    <div>
+                        @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button> 
+                            <strong>{{ $message }}</strong>
+                        </div>
+                        @endif
+                    </div>
                     <div class="card-header"><u>All Category</u>
                     </div>
                     <table class="table table-hover">
@@ -22,7 +29,7 @@
                         <tr>
                           <th scope="col">Serial No</th>
                           <th scope="col">Cateory Name</th>
-                          <th scope="col">Email</th>
+                          <th scope="col">User Name</th>
                           <th scope="col">Create At</th>
                       </tr>
                   </thead>
@@ -32,7 +39,7 @@
                       <th scope="row">{{$loop->index+1}}</th>
                       <td>{{$category->category_name}}</td>
                       <td>{{$category->user_id}}</td>
-                  <td>{{$category->created_at->diffForHumans()}}</td>
+                      <td>{{$category->created_at->diffForHumans()}}</td>
                   </tr>
                   @endforeach
 

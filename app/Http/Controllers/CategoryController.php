@@ -52,6 +52,9 @@ class CategoryController extends Controller
             'user_id'=>Auth::user()->id,
             'created_at'=>Carbon::now(),
           ]);
+    return back()->with('success','Item created successfully!');
+
+
 
     }
 

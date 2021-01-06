@@ -29,7 +29,7 @@
                   <td>{{$user->name}}</td>
                   <td>{{$user->email}}</td>
                   <td>{{$user->created_at->diffForHumans()}}</td>
-              </tr>
+                </tr>
               @endforeach
 
 

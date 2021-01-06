@@ -17,7 +17,7 @@
                     </x-jet-nav-link>
                     <!-- Allcategory -->
 
-                    <x-jet-nav-link href="" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{url('/category')}}">
                         All Category
                     </x-jet-nav-link>
                 </div>

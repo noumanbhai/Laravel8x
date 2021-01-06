@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Auth;
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categorys=Category::all();
+        return view('admin.category.index',compact('categorys'));
     }
 
     /**
@@ -35,7 +38,21 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+            $validatedData= $request->validate([
+                'category_name' => 'required',
+                        ],
+                        [
+                         'category_name'=>'Please input your cateory',
+                        ]);
+        // Category::create($request->all());
+
+         Category::insert([
+            'category_name'=>$request->category_name,
+            'user_id'=>Auth::user()->id,
+            'created_at'=>Carbon::now(),
+          ]);
+
     }
 
     /**

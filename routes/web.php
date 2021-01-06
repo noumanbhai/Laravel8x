@@ -22,4 +22,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 	$users=User::all();
     return view('dashboard',compact('users'));
+    // cateory controller
+Route::resource('/category','CategoryController');
 })->name('dashboard');

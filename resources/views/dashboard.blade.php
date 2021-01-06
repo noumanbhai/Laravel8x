@@ -23,7 +23,7 @@
       <th scope="row">1</th>
       <td>{{$user->name}}</td>
       <td>{{$user->email}}</td>
-      <td>{{$user->created_at}}</td>
+      <td>{{$user->created_at->diffForHumans()}}</td>
     </tr>
     @endforeach
   

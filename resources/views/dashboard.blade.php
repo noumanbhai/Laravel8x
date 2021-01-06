@@ -6,10 +6,32 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <!-- <x-jet-welcome /> -->
-            </div>
+<div class="container">
+    <div class="row">
+        <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Serial No</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Create At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+  
+
+  </tbody>
+</table>
+    </div>
+</div>
+
+
         </div>
     </div>
 </x-app-layout>

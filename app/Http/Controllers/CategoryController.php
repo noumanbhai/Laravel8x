@@ -92,7 +92,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        // return $category;
+        $validatedData= $request->validate([
+            'category_name' => 'required',
+        ],
+        [
+           'category_name'=>'Please input your cateory',
+       ]);
+
+        $category->update($request->all());
+        return redirect()->route('category.index')
+            ->with('success','Item update successfully!');
+
     }
 
     /**

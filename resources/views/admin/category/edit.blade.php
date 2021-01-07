@@ -20,10 +20,10 @@
 						@method('PUT')
 						<div class="form-group">
 							<label for="category">Etnter Category</label>
-							<input type="text" class="form-control" value="{{$category->category_name}}" id="category"  aria-describedby="emailHelp"  required="" placeholder="Enter Category">
-							@error('category_name')
+							<input type="text" class="form-control" value="{{$category->category_name}}" id="category" name="category_name" aria-describedby="emailHelp"  required="" placeholder="Enter Category">
+		<!-- 					@error('category_name')
 							<div class="alert alert-danger">{{ $message }}</div>
-							@enderror
+							@enderror -->
 
 						</div>
 

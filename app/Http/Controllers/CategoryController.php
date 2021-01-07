@@ -16,8 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categorys=Category::latest()->paginate(2);
-        return view('admin.category.index',compact('categorys'));
+        $categorys=Category::latest()->paginate(5);
+        // Trash Data
+        $trashcat=Category::onlyTrashed()->latest()->paginate(5);
+        return view('admin.category.index',compact('categorys','trashcat'));
     }
 
     /**
@@ -78,7 +80,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         // return $category;
-       
+
      return view('admin.category.edit',compact('category'));
 
  }
@@ -123,4 +125,13 @@ class CategoryController extends Controller
         return back()->with('danger','Item delete successfully!');
 
     }
+
+    public function softdelete($id)
+     {
+        // return $id;
+        $softdelete=Category::find($id);
+        $softdelete->delete();
+        return back()->with('danger','Item delete successfully!');
+
+     }
 }

@@ -19,6 +19,8 @@ Route::get('/', function () {
 });
     // cateory controller
 Route::resource('/category','CategoryController');
+// soft delete cateory
+Route::get('softdelete/category/{id}','CategoryController@softdelete');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 

@@ -15,16 +15,23 @@
             <div class="row">
                 <div class="col-md-8">
                     <div>
+
                         @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-block">
                             <button type="button" class="close" data-dismiss="alert">×</button> 
                             <strong>{{ $message }}</strong>
                         </div>
                         @endif
-                    </div>
-                    <div class="card-header"><u>All Category</u>
-                    </div>
-                    <table class="table table-hover">
+                        @if ($message = Session::get('danger'))
+                        <div class="alert alert-danger alert-block">
+                          <button type="button"  class="close" data-dismiss="alert">×</button> 
+                          <strong>{{ $message }}</strong>
+                      </div>
+                      @endif
+                  </div>
+                  <div class="card-header"><u>All Category</u>
+                  </div>
+                  <table class="table table-hover">
                       <thead>
                         <tr>
                           <th scope="col">Serial No</th>
@@ -43,16 +50,23 @@
                       <td>{{$category->category_name}}</td>
                       <td>{{$category->userget->name}}</td>
                       <td>{{$category->created_at->diffForHumans()}}</td>
-                      <td><a href="{{route('category.edit',$category->id)}}" class="btn btn-primary">Edit</a>
-                      <td><a href="" class="btn btn-danger">Delete</a>
+                      <td>
+                       <form action="{{ route('category.destroy',$category->id) }}" method="POST">
 
-                      </td>
+                        <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary">Edit</a>
+                        <td>
+                            <button class="btn btn-danger"  onclick="return confirm('Sure Want Delete?')">Delete</button>
 
-                  </tr>
-                  @endforeach
-              </tbody>
-          </table>
-          {{ $categorys->links() }}
+                        </td>
+                        @csrf
+                        @method('DELETE')
+                    </form>
+
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        {{ $categorys->links() }}
 
      <!--      @if(empty($categorys))
           @else

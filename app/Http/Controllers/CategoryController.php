@@ -114,6 +114,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+
+       // return $category;
+        $category->delete();
+     return back()->with('danger','Item delete successfully!');
+
     }
 }

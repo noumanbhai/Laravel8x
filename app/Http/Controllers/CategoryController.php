@@ -43,8 +43,8 @@ class CategoryController extends Controller
             'category_name' => 'required',
         ],
         [
-           'category_name'=>'Please input your cateory',
-       ]);
+         'category_name'=>'Please input your cateory',
+     ]);
         // Category::create($request->all());
 
         Category::insert([
@@ -78,10 +78,10 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         // return $category;
- 
-       return view('admin.category.edit',compact('category'));
+       
+     return view('admin.category.edit',compact('category'));
 
-    }
+ }
 
     /**
      * Update the specified resource in storage.
@@ -92,17 +92,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        // return $category;
+
         $validatedData= $request->validate([
             'category_name' => 'required',
         ],
         [
-           'category_name'=>'Please input your cateory',
-       ]);
+         'category_name'=>'Please input your cateory',
+     ]);
 
-        $category->update($request->all());
+        $fetchdata=Category::find($request->id);
+        $fetchdata->category_name=$request->category_name;
+        $fetchdata->save();
+
         return redirect()->route('category.index')
-            ->with('success','Item update successfully!');
+        ->with('success','Item update successfully!');
 
     }
 
@@ -117,7 +120,7 @@ class CategoryController extends Controller
 
        // return $category;
         $category->delete();
-     return back()->with('danger','Item delete successfully!');
+        return back()->with('danger','Item delete successfully!');
 
     }
 }

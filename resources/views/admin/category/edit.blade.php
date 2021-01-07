@@ -15,12 +15,14 @@
 			<div class="row">
 				<div class="col-md-8">
 					<div class="card-header"><u>Edit Category</u></div>
-					<form action="{{route('category.update',$category->id)}}" method="POST">
-						@csrf
-						@method('PUT')
+					<form action="{{route('category.update',$category->id)}}" method="post">
+						{{ csrf_field() }}
+						{{ method_field('PUT') }}
+						
+						<input type="hidden" name="id" value="{{$category->id}}">
 						<div class="form-group">
 							<label for="category">Etnter Category</label>
-							<input type="text" class="form-control" value="{{$category->category_name}}" id="category" name="category_name" aria-describedby="emailHelp"  required="" placeholder="Enter Category">
+							<input type="text" class="form-control" value="{{$category->category_name}}" name="category_name"  placeholder="Enter Category">
 		<!-- 					@error('category_name')
 							<div class="alert alert-danger">{{ $message }}</div>
 							@enderror -->

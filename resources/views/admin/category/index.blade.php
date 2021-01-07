@@ -29,7 +29,7 @@
                         <tr>
                           <th scope="col">Serial No</th>
                           <th scope="col">Cateory Name</th>
-                          <th scope="col">User Name</th>
+                          <th scope="col">User</th>
                           <th scope="col">Create At</th>
                       </tr>
                   </thead>
@@ -40,7 +40,7 @@
                     <tr>
                       <th scope="row">{{$loop->index+1}}</th>
                       <td>{{$category->category_name}}</td>
-                      <td>{{$category->user_id}}</td>
+                      <td>{{$category->userget->name}}</td>
                       <td>{{$category->created_at->diffForHumans()}}</td>
 
                   </tr>

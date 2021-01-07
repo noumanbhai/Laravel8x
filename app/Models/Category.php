@@ -17,4 +17,10 @@ class Category extends Model
  
     ];
 
+    public function userget()
+    { 
+    	                //User modal cat id or user id
+    	return $this->hasOne(User::class,'id','user_id');
+    }
+
 }

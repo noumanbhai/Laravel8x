@@ -39,20 +39,20 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         // return $request;
-            $validatedData= $request->validate([
-                'category_name' => 'required',
-                        ],
-                        [
-                         'category_name'=>'Please input your cateory',
-                        ]);
+        $validatedData= $request->validate([
+            'category_name' => 'required',
+        ],
+        [
+           'category_name'=>'Please input your cateory',
+       ]);
         // Category::create($request->all());
 
-         Category::insert([
+        Category::insert([
             'category_name'=>$request->category_name,
             'user_id'=>Auth::user()->id,
             'created_at'=>Carbon::now(),
-          ]);
-    return back()->with('success','Item created successfully!');
+        ]);
+        return back()->with('success','Item created successfully!');
 
 
 
@@ -77,7 +77,10 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        // return $category;
+ 
+       return view('admin.category.edit',compact('category'));
+
     }
 
     /**

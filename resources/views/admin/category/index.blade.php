@@ -34,22 +34,31 @@
                       </tr>
                   </thead>
                   <tbody>
+
                     @foreach($categorys as $category)
+
                     <tr>
                       <th scope="row">{{$loop->index+1}}</th>
                       <td>{{$category->category_name}}</td>
                       <td>{{$category->user_id}}</td>
                       <td>{{$category->created_at->diffForHumans()}}</td>
+
                   </tr>
                   @endforeach
-
-
               </tbody>
           </table>
+          {{ $categorys->links() }}
 
-      </div>
+     <!--      @if(empty($categorys))
+          @else
+          <div class="alert alert-warning" role="alert">
+            Record is not Found
+        </div>
+        @endif -->
 
-      <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
         <div class="card-header"><u>Create Category</u></div>
         <form action="{{route('category.store')}}" method="POST">
             @csrf

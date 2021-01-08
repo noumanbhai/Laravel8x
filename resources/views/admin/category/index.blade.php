@@ -54,8 +54,7 @@
 
 
     <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary">Edit</a> 
-softdelete
-    <a href="{{url('softdelete/category/'.$category->id)}}" class="btn btn-primary">Delete</a>
+    <a href="{{url('softdelete/category/'.$category->id)}}" class="btn btn-danger">Delete</a>
 </td>
                 </tr>
                 @endforeach
@@ -125,7 +124,7 @@ softdelete
 <thead>
 <tr>
 <th scope="col">Serial No</th>
-<th scope="col">Cateory Name</th>
+<th scope="col">Category Name</th>
 <th scope="col">User</th>
 <th scope="col">Create At</th>
 <th scope="col">Action</th>
@@ -141,15 +140,15 @@ softdelete
 <td>{{$book->userget->name}}</td>
 <td>{{$book->created_at->diffForHumans()}}</td>
 <td>
-  <!-- {{$book->id}} -->
 <form action="{{ url('category/delete',$book->id)}}" method="POST">
    
    <input name="_method" type="hidden" value="DELETE">
-   <button class="btn btn-dark" onclick="return confirm('Sure want Delete')">Delete</button>
+   <button class="btn btn-primary" onclick="return confirm('Sure want Delete')">Delete</button>
     {{ csrf_field() }}
+<a href="{{url('category/restore',$book->id)}}" class="btn btn-primary">Restore</a>
 </form>
-
 </td>
+
 <!-- @csrf
 @method('DELETE') -->
 

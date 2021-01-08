@@ -141,4 +141,12 @@ class CategoryController extends Controller
         return back()->with('danger','Item Soft delete successfully!');
 
      }
+     public function restore($id)
+     {
+         // return $id;
+        Category::withTrashed()->find($id)->restore();
+        return back()->with('success','Item Restore is  successfully!');
+
+
+     }
 }

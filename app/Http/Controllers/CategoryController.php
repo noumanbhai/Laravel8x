@@ -117,21 +117,28 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
-    {
+    // public function destroy(Category $category,$id)
+    // {
+    //        return $id;
+    //        return $category;
+    //     // $category->delete();
+    //     // return back()->with('danger','Item delete successfully!');
 
-       // return $category;
-        $category->delete();
-        return back()->with('danger','Item delete successfully!');
+    // }
+
+    public function delete(Request $request,$id)
+    {
+        // return "pakistan".$id;
+        $delete=Category::onlyTrashed()->find($id)->forceDelete();
+       return back()->with('danger','Item Permanent successfully!');
 
     }
-
     public function softdelete($id)
      {
         // return $id;
         $softdelete=Category::find($id);
         $softdelete->delete();
-        return back()->with('danger','Item delete successfully!');
+        return back()->with('danger','Item Soft delete successfully!');
 
      }
 }

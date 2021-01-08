@@ -51,21 +51,12 @@
                       <td>{{$category->userget->name}}</td>
                       <td>{{$category->created_at->diffForHumans()}}</td>
                       <td>
-<!--                        <form action="{{ route('category.destroy',$category->id) }}" method="POST">
 
-                        <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary">Edit</a>
-                        <td>
-                            <button class="btn btn-danger"  onclick="return confirm('Sure Want Delete?')">Delete</button>
-
-                        </td>
-                        @csrf
-                        @method('DELETE')
-                    </form> -->
 
     <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary">Edit</a> 
-
+softdelete
     <a href="{{url('softdelete/category/'.$category->id)}}" class="btn btn-primary">Delete</a>
-
+</td>
                 </tr>
                 @endforeach
             </tbody>
@@ -142,24 +133,25 @@
 </thead>
 <tbody>
 
-@foreach($trashcat as $category)
+@foreach($trashcat as $book)
 
 <tr>
 <th scope="row">{{$loop->index+1}}</th>
-<td>{{$category->category_name}}</td>
-<td>{{$category->userget->name}}</td>
-<td>{{$category->created_at->diffForHumans()}}</td>
+<td>{{$book->category_name}}</td>
+<td>{{$book->userget->name}}</td>
+<td>{{$book->created_at->diffForHumans()}}</td>
 <td>
-<form action="{{ route('category.destroy',$category->id) }}" method="POST">
-
-<a href="{{route('category.edit',$category->id)}}" class="btn btn-primary">Edit</a>
-<td>
-<button class="btn btn-danger"  onclick="return confirm('Sure Want Delete?')">Delete</button>
+  <!-- {{$book->id}} -->
+<form action="{{ url('category/delete',$book->id)}}" method="POST">
+   
+   <input name="_method" type="hidden" value="DELETE">
+   <button class="btn btn-dark" onclick="return confirm('Sure want Delete')">Delete</button>
+    {{ csrf_field() }}
+</form>
 
 </td>
 <!-- @csrf
 @method('DELETE') -->
-</form>
 
 </tr>
 @endforeach

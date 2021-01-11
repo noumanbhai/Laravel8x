@@ -15,10 +15,19 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <!-- Allcategory -->
+                    <!-- All category -->
 
                     <x-jet-nav-link href="{{url('/category')}}">
                         All Category
+                    </x-jet-nav-link>
+                </div>
+                <!-- All brand -->
+                  <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+             
+                    <!-- Allcategory -->
+
+                    <x-jet-nav-link href="{{url('/brand')}}">
+                        All Brand
                     </x-jet-nav-link>
                 </div>
             </div>

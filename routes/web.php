@@ -23,8 +23,11 @@ Route::resource('/category','CategoryController');
 Route::get('softdelete/category/{id}','CategoryController@softdelete');
 // permanent delete
 Route::delete('category/delete/{id}','CategoryController@delete');
-// rrestore
+// restore restore
 Route::get('category/restore/{id}','CategoryController@restore');
+
+//brand controller
+Route::resource('/brand','BrandController');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

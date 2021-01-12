@@ -13,8 +13,9 @@ class BrandController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return "idnex brand";
+    { 
+        $brands=Brand::latest()->paginate(5);
+        return view('admin.brand.index',compact('brands'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +36,8 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
+        dd($request->all());
     }
 
     /**

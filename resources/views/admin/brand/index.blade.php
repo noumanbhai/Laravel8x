@@ -48,8 +48,8 @@
                     <tr>
                       <th scope="row">{{$loop->index+1}}</th>
                       <td>{{$brand->brand_name}}</td>
-                      <td><img src="{{ URL::to('/') }}/images/{{ $brand->brand_image }}" class="img-thumbnail" width="75" /></td>
-                  <td>{{$brand->created_at->diffForHumans()}}</td>
+                      <td><img src="{{ URL::to('/') }}/images/{{ $brand->brand_image }}" class="img-thumbnail" width="50" height="50" /></td>
+                 <td>{{$brand->created_at->diffForHumans()}}</td>
 <td>
 
 

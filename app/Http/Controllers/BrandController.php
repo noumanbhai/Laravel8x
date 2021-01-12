@@ -58,7 +58,9 @@ class BrandController extends Controller
 
     Brand::insert([
         'brand_name'=>$brand_name,
-        'brand_image'=>$imageName
+        'brand_image'=>$imageName,
+        'created_at'=>Carbon::now(),
+
     ]);
     return back()->with('success','Brand created successfully!');
 

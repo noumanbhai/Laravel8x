@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+// use App\File;
+use Illuminate\Support\Facades\Storage;
+use File;
+
 
 
 class BrandController extends Controller
@@ -112,6 +116,13 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+
+    // return $brand;
+        $image=$brand->brand_image;
+        $path_img=('images/'.$image);
+        $nn=File::delete(public_path($path_img));
+        $brand->delete();
+        return back()->with('danger','Brand delete is successfully!');
+
     }
 }

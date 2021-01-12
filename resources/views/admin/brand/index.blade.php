@@ -52,9 +52,18 @@
                  <td>{{$brand->created_at->diffForHumans()}}</td>
 <td>
 
-
+<!-- 
     <a href="{{route('brand.edit',$brand->id)}}" class="btn btn-primary">Edit</a> 
-    <a href="{{url('softdelete/brand/'.$brand->id)}}" class="btn btn-danger">Delete</a>
+    <a href="{{route('brand.destroy',$brand->id)}}" class="btn btn-danger">Delete</a>
+        {{ method_field('DELETE') }} -->
+                <form action="{{ route('brand.destroy', $brand->id)}}" method="post">
+                  @csrf
+                  @method('DELETE')
+         <a href="{{route('brand.edit',$brand->id)}}" class="btn btn-primary">Edit</a> 
+
+                  <button class="btn btn-danger" onclick="return confirm('Are you sure?')" type="submit">Delete</button>
+                </form>
+
 </td>
                 </tr>
                 @endforeach

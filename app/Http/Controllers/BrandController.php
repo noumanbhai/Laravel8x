@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+
 
 class BrandController extends Controller
 {
@@ -14,7 +16,7 @@ class BrandController extends Controller
      */
     public function index()
     { 
-        $brands=Brand::latest()->paginate(5);
+        $brands=Brand::latest()->paginate(2);
         return view('admin.brand.index',compact('brands'));
     }
 
@@ -36,8 +38,34 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
-        dd($request->all());
+        // dd($request->all());
+               // return $request;
+        $validatedData= $request->validate([
+            'brand_name' => 'required',
+            'brand_image' => 'required',
+        ],
+        [
+         'brand_name'=>'Please input your image',
+         'brand_image'=>'Please upload your image',
+
+     ]);
+        $brand_name=$request->brand_name;
+        $image=$request->file('brand_image');
+        if ($image) {
+     $imageName = rand(11111, 99999) . '.' . $image->  getClientOriginalExtension();
+    $image->move(public_path('images'), $imageName);
+    // return $imageName;
+
+    Brand::insert([
+        'brand_name'=>$brand_name,
+        'brand_image'=>$imageName
+    ]);
+    return back()->with('success','Brand created successfully!');
+
+
+
+        } 
+        
     }
 
     /**

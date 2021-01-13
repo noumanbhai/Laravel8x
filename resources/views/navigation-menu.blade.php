@@ -15,18 +15,22 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+            
                     <!-- All category -->
 
-                    <x-jet-nav-link href="{{url('/category')}}">
-                        All Category
+                    <x-jet-nav-link href="{{ url('category') }}" :active="request()->routeIs('category.index')">
+<!-- <li class="{{Request::is('/')?'active':''}}"> <a href="{{ url('') }}">Home</a> </li>
+<li> <a class="{{Request::is('blog')?'active':''}}" href="{{ url('blog') }}">Blog</a> </li> -->
+                        <!-- All Category -->
+                          {{ __('category') }}
+
                     </x-jet-nav-link>
-                </div>
+            
                 <!-- All brand -->
-                  <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
              
                     <!-- Allcategory -->
 
-                    <x-jet-nav-link href="{{url('/brand')}}">
+                    <x-jet-nav-link href="{{ url('brand') }}" :active="request()->routeIs('brand.index')">
                         All Brand
                     </x-jet-nav-link>
                 </div>

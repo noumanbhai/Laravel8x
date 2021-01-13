@@ -19,10 +19,8 @@
                     <!-- All category -->
 
                     <x-jet-nav-link href="{{ url('category') }}" :active="request()->routeIs('category.index')">
-<!-- <li class="{{Request::is('/')?'active':''}}"> <a href="{{ url('') }}">Home</a> </li>
-<li> <a class="{{Request::is('blog')?'active':''}}" href="{{ url('blog') }}">Blog</a> </li> -->
-                        <!-- All Category -->
-                          {{ __('category') }}
+
+                          {{ __('All Category') }}
 
                     </x-jet-nav-link>
             
@@ -32,6 +30,11 @@
 
                     <x-jet-nav-link href="{{ url('brand') }}" :active="request()->routeIs('brand.index')">
                         All Brand
+                    </x-jet-nav-link>
+                    <!-- Allcategory -->
+
+                    <x-jet-nav-link href="{{ url('/multipics') }}" :active="request()->routeIs('multipics.index')">
+                        Multi Images
                     </x-jet-nav-link>
                 </div>
             </div>

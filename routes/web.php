@@ -28,6 +28,9 @@ Route::get('category/restore/{id}','CategoryController@restore');
 
 //brand controller
 Route::resource('/brand','BrandController');
+//Multi  Images
+Route::resource('/multipics','MultipicsController');
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

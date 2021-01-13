@@ -14,7 +14,9 @@ class MultipicsController extends Controller
      */
     public function index()
     {
-        return "multipics";
+        // return "multipics";
+        $images=Multipics::latest()->paginate(3);
+        return view('admin.multipic.index',compact('images'));
     }
 
     /**
@@ -35,8 +37,26 @@ class MultipicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $files = $request->file('images');
+foreach ($files as $image) {
+        // if ($image) {
+           $imageName = rand(11111, 99999) . '.' . $image->  getClientOriginalExtension();
+           $image->move(public_path('multipic'), $imageName);
+    // return $imageName;
+
+           Multipics::insert([
+            'image'=>$imageName,
+            // 'created_at'=>Carbon::now(),
+
+        ]);
+  
+
+
+}
+           return back()->with('success','Images created successfully!');
+        
+    // }
+}
 
     /**
      * Display the specified resource.

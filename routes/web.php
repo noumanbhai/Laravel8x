@@ -13,6 +13,11 @@ use App\Models\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Email Verification in Auth
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
 
 Route::get('/', function () {
     return view('welcome');

@@ -50,3 +50,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard',compact('users'));
     
 })->name('dashboard');
+
+
+Route::get('/book', function () {
+    return view('admin.main');
+});

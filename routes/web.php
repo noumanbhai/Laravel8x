@@ -50,6 +50,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard',compact('users'));
     
 })->name('dashboard');
+// Logout
+Route::get('user/logout','MultipicsController@logout')->name('user.logout');
 
 
 Route::get('/book', function () {

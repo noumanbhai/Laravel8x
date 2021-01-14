@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Multipics;
 use Illuminate\Http\Request;
+use Auth;
 
 class MultipicsController extends Controller
 {
@@ -101,5 +102,12 @@ foreach ($files as $image) {
     public function destroy(Multipics $multipics)
     {
         //
+    }
+    public function logout()
+    {
+      // return "ok";
+        Auth::logout();
+        return redirect()->route('login')->with('success','User Logout' );
+
     }
 }

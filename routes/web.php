@@ -22,6 +22,10 @@ Route::get('/email/verify', function () {
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Auth Middleware is use only Auth working
+Route::group(['middleware' => ['auth']], function() {
+
     // cateory controller
 Route::resource('/category','CategoryController');
 // soft delete cateory
@@ -30,11 +34,13 @@ Route::get('softdelete/category/{id}','CategoryController@softdelete');
 Route::delete('category/delete/{id}','CategoryController@delete');
 // restore restore
 Route::get('category/restore/{id}','CategoryController@restore');
-
 //brand controller
 Route::resource('/brand','BrandController');
 //Multi  Images
 Route::resource('/multipics','MultipicsController');
+
+});
+
 
 
 

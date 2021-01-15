@@ -20,11 +20,12 @@ Route::get('/email/verify', function () {
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 // Auth Middleware is use only Auth working
 Route::group(['middleware' => ['auth']], function() {
+
 
     // cateory controller
 Route::resource('/category','CategoryController');

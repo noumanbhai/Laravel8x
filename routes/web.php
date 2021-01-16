@@ -20,13 +20,14 @@ Route::get('/email/verify', function () {
 // });
 // Froant End Page
 Route::get('/','HomeController@index');
-// Slider controller
-Route::resource('/slid','SliderController');
+// Route::get('/sl','HomeController@slider'); //notwork
 
 
 
 // Auth Middleware is use only Auth working
 Route::group(['middleware' => ['auth']], function() {
+// Slider controller
+Route::resource('/slid','SliderController');
 // cateory controller
 Route::resource('/category','CategoryController');
 // soft delete cateory

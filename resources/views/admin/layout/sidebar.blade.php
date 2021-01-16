@@ -40,8 +40,14 @@
             <ul  class="collapse show"  id="dashboard"
             data-parent="#sidebar-menu">
             <div class="sub-menu">
+            <li  class="active" >
+                <a class="sidenav-item-link" href="{{route('slid.index')}}">
+                  <span class="nav-text">Slider</span>
+                  
+                </a>
+      </li>
       
-      <li  class="active" >
+      <li  class="" >
                 <a class="sidenav-item-link" href="{{route('brand.index')}}">
                   <span class="nav-text">Brands</span>
                   

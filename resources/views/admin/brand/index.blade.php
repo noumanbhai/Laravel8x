@@ -1,26 +1,27 @@
  @extends('admin.admin_dashbord')
  @section('main')
- <div class="container ">
-  <div class="row">
-    <div class="col-md-8">
-      <div>
+    <div class="py-12">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div>
 
-        @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-block">
-          <button type="button" class="close" data-dismiss="alert">×</button> 
-          <strong>{{ $message }}</strong>
-        </div>
-        @endif
-        @if ($message = Session::get('danger'))
-        <div class="alert alert-danger alert-block">
-          <button type="button"  class="close" data-dismiss="alert">×</button> 
-          <strong>{{ $message }}</strong>
-        </div>
-        @endif
-      </div>
+                        @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button> 
+                            <strong>{{ $message }}</strong>
+                        </div>
+                        @endif
+                        @if ($message = Session::get('danger'))
+                        <div class="alert alert-danger alert-block">
+                          <button type="button"  class="close" data-dismiss="alert">×</button> 
+                          <strong>{{ $message }}</strong>
+                      </div>
+                      @endif
+                  </div>
       <div class="card-header"><u>All Brand</u>
       </div>
-      <table class="table table-bordered table-hover">
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">Serial No</th>
@@ -41,10 +42,6 @@
             <td>{{$brand->created_at->diffForHumans()}}</td>
             <td>
 
-<!-- 
-    <a href="{{route('brand.edit',$brand->id)}}" class="btn btn-primary">Edit</a> 
-    <a href="{{route('brand.destroy',$brand->id)}}" class="btn btn-danger">Delete</a>
-    {{ method_field('DELETE') }} -->
     <form action="{{ route('brand.destroy', $brand->id)}}" method="post">
       @csrf
       @method('DELETE')
@@ -58,15 +55,9 @@
 @endforeach
 </tbody>
 </table>
-{{ $brands->links() }}
 
-     <!--      @if(empty($categorys))
-          @else
-          <div class="alert alert-warning" role="alert">
-            Record is not Found
-        </div>
-        @endif -->
-
+ <div class="flex items-center justify-between">{{ $brands->links() }}
+ </div> 
       </div>
 
       <div class="col-md-4">
@@ -99,6 +90,5 @@
     </div>
   </div>
 </div>
-</div>
-@endsection
 
+@endsection

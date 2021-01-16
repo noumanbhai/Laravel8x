@@ -62,12 +62,6 @@
         </table>
         {{ $categorys->links() }}
 
-     <!--      @if(empty($categorys))
-          @else
-          <div class="alert alert-warning" role="alert">
-            Record is not Found
-        </div>
-        @endif -->
 
     </div>
 

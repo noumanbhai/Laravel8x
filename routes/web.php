@@ -19,9 +19,11 @@ Route::get('/email/verify', function () {
 })->middleware('auth')->name('verification.notice');
 
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+// Route::get('/', function () {
+//     return view('frontend.index');
+// });
+// Froant End Page
+Route::get('/','HomeController@index');
 
 // Auth Middleware is use only Auth working
 Route::group(['middleware' => ['auth']], function() {

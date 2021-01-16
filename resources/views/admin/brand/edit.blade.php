@@ -1,19 +1,9 @@
-<x-app-layout>
-	<x-slot name="header">
-		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
-			<!-- {{ __('Dashboard') }} -->
-			<span>Edit <u class="text-primary"> Brand</u></span>
-			<b class="float-right">Total user
-				<span class="badge badge-pill badge-info"></span>
-			</b>
-
-		</h2>
-	</x-slot>
-
-	<div class="py-12">
-		<div class="container">
+ @extends('admin.admin_dashbord')
+ @section('main')
+<div class="py-12 border ">
+		<div class="container m-5">
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-8 align-content-center">
 					<div class="card-header"><u>Edit Brand</u></div>
 					<form action="{{route('brand.update',$brand->id)}}" method="post" enctype="multipart/form-data">
 						{{ csrf_field() }}
@@ -46,8 +36,6 @@
 			</div>
 		</div>
 	</div>
+	@endsection
 
 
-</div>
-</div>
-</x-app-layout>

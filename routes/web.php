@@ -28,6 +28,8 @@ Route::get('/','HomeController@index');
 Route::group(['middleware' => ['auth']], function() {
 // Slider controller
 Route::resource('/slid','SliderController');
+// About controller
+Route::resource('/about','AbouteController');
 // cateory controller
 Route::resource('/category','CategoryController');
 // soft delete cateory

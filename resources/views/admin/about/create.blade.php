@@ -8,7 +8,7 @@
           <h2>Create About</h2>
         </div>
         <div class="card-body">
-          <form action="{{route('slid.store')}}" method="POST" enctype="multipart/form-data">
+          <form action="{{route('about.store')}}" method="POST" enctype="multipart/form-data">
             @csrf                        
             <div class="form-row">
               <div class="col-md-12 mb-3">
@@ -22,14 +22,14 @@
               <div class="col-md-12 mb-3">
                 <label for="short_des">Short Description</label>
                 <textarea name="short_des" class="form-control" id="short_des" cols="30" rows="5" placeholder="Short description"></textarea>
-                @error('short_des')
+              @error('pak')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>
               <div class="col-md-12 mb-3">
                 <label for="long_des">Long Description</label>
                 <textarea name="long_des" class="form-control" id="long_des" cols="30" rows="5" placeholder="Long description"></textarea>
-                @error('long_des')
+                @error('description')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>

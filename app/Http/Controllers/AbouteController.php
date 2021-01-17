@@ -36,18 +36,18 @@ class AbouteController extends Controller
      */
     public function store(Request $request)
     {
-       //      $validatedData= $request->validate([
-       //      'title' => 'required',
-       //      'pak' => 'required|min:3|max:1000',
-       //      'description' => 'required'
-       //  ],
-       //  [
-       //     // 'descriptionone'=>'Please input your Short description',
-       //     'title'=>'Please input your title',
-       //     'pak'=>'Please input your Long description',
-       //     'description'=>'Please input your Long description',
+            $validatedData= $request->validate([
+            'title' => 'required',
+            // 'pak' => 'required|min:3|max:1000',
+            // 'description' => 'required'
+        ],
+        [
+           // 'descriptionone'=>'Please input your Short description',
+           'title'=>'Please input your title',
+           // 'pak'=>'Please input your Long description',
+           // 'description'=>'Please input your Long description',
 
-       // ]);
+       ]);
                 // Aboute::create($request->all());
             Aboute::insert([
             'title'=>$request->title,

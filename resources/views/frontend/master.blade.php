@@ -18,8 +18,8 @@
 <!-- header end -->
 
   <!-- Slider start -->
-  @include('frontend.layout.slider')
-  <!-- Slider end -->
+{{--   @include('frontend.layout.slider')
+ --}}  <!-- Slider end -->
   <!-- End Hero -->
 <!-- Main section -->
   <main id="main">

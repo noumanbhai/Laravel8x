@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aboute;
+use App\Models\Form;
 use Illuminate\Http\Request;
 
-class AbouteController extends Controller
+class FormController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,10 @@ class AbouteController extends Controller
      */
     public function index()
     {
-          $aboutes=Aboute::latest()->paginate(5);
-         return view('admin.about.index',compact('aboutes'));    
-     }
+        // return "ok";
+        $messages=Form::all();
+        return view('admin.form.index',compact('messages')); 
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -25,8 +26,7 @@ class AbouteController extends Controller
      */
     public function create()
     {
-        return view('admin.about.create');  
-
+        //
     }
 
     /**
@@ -37,37 +37,38 @@ class AbouteController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request;
             $validatedData= $request->validate([
-            'title' => 'required',
-            // 'pak' => 'required|min:3|max:1000',
-            // 'description' => 'required'
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+       
         ],
         [
-           // 'descriptionone'=>'Please input your Short description',
-           'title'=>'Please input your title',
-           // 'pak'=>'Please input your Long description',
-           // 'description'=>'Please input your Long description',
+           'name'=>'Please input your name',
+           'email'=>'Please input your email',
+           'subject'=>'Please input your subject',
+           'message'=>'Please input your message',
+        
 
        ]);
-                // Aboute::create($request->all());
-            Aboute::insert([
-            'title'=>$request->title,
-            'short_des'=>$request->short_des,
-            'long_des'=>$request->long_des,
+            Form::insert([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'subject'=>$request->subject,
+            'message'=>$request->message,
         ]);
-       return redirect('/about')->with('success','About created successfully!');
-
-
-
+       return redirect('/contacts')->with('success','Form is Submit successfully!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Aboute  $aboute
+     * @param  \App\Models\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function show(Aboute $aboute)
+    public function show(Form $form)
     {
         //
     }
@@ -75,10 +76,10 @@ class AbouteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Aboute  $aboute
+     * @param  \App\Models\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function edit(Aboute $aboute)
+    public function edit(Form $form)
     {
         //
     }
@@ -87,10 +88,10 @@ class AbouteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Aboute  $aboute
+     * @param  \App\Models\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Aboute $aboute)
+    public function update(Request $request, Form $form)
     {
         //
     }
@@ -98,10 +99,10 @@ class AbouteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Aboute  $aboute
+     * @param  \App\Models\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Aboute $aboute)
+    public function destroy(Form $form)
     {
         //
     }

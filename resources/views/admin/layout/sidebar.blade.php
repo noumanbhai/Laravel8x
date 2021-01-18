@@ -89,7 +89,7 @@
     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
     aria-expanded="false" aria-controls="app">
     <i class="mdi mdi-pencil-box-multiple"></i>
-    <span class="nav-text">App</span> <b class="caret"></b>
+    <span class="nav-text">Contact</span> <b class="caret"></b>
   </a>
   <ul  class="collapse"  id="app"
   data-parent="#sidebar-menu">
@@ -98,8 +98,8 @@
 
 
     <li >
-      <a class="sidenav-item-link" href="chat.html">
-        <span class="nav-text">Chat</span>
+      <a class="sidenav-item-link" href="{{route('contact.index')}}">
+        <span class="nav-text">Contact Address</span>
 
       </a>
     </li>
@@ -110,40 +110,12 @@
 
 
     <li >
-      <a class="sidenav-item-link" href="contacts.html">
-        <span class="nav-text">Contacts</span>
+      <a class="sidenav-item-link" href="{{route('form.index')}}">
+        <span class="nav-text">Contacts Form</span>
 
       </a>
     </li>
-
-
-
-
-
-
-    <li >
-      <a class="sidenav-item-link" href="team.html">
-        <span class="nav-text">Team</span>
-
-      </a>
-    </li>
-
-
-
-
-
-
-    <li >
-      <a class="sidenav-item-link" href="calendar.html">
-        <span class="nav-text">Calendar</span>
-
-      </a>
-    </li>
-
-
-
-
-  </div>
+</div>
 </ul>
 </li>
 

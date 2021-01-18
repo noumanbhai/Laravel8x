@@ -20,12 +20,17 @@ Route::get('/email/verify', function () {
 // });
 // Froant End Page
 Route::get('/','HomeController@index');
-// Route::get('/sl','HomeController@slider'); //notwork
+// Frontend Contacts
+Route::get('/contacts','HomeController@contact');
 
 
 
 // Auth Middleware is use only Auth working
 Route::group(['middleware' => ['auth']], function() {
+// Frontend Contacts
+Route::resource('/form','FormController');
+// Contact controller
+Route::resource('/contact','ContactController');
 // Slider controller
 Route::resource('/slid','SliderController');
 // About controller

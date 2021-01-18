@@ -1,5 +1,7 @@
 @extends('frontend.master')
 @section('home_section')
+  @include('frontend.layout.slider')
+
 <div>
 
     <!-- ======= About Us Section ======= -->

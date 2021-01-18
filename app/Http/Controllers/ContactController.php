@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aboute;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class AbouteController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,12 @@ class AbouteController extends Controller
      */
     public function index()
     {
-          $aboutes=Aboute::latest()->paginate(5);
-         return view('admin.about.index',compact('aboutes'));    
-     }
+        $contacts=Contact::get();
+        return view('admin.contactadd.index',compact('contacts')); 
+        // return view('admin.contactadd.index'); 
+
+
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +28,8 @@ class AbouteController extends Controller
      */
     public function create()
     {
-        return view('admin.about.create');  
+     // return "ok";  
+     return view('admin.contactadd.create');  
 
     }
 
@@ -37,37 +41,41 @@ class AbouteController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request;
             $validatedData= $request->validate([
-            'title' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
+            'map' => 'required',
             // 'pak' => 'required|min:3|max:1000',
             // 'description' => 'required'
         ],
         [
+           'address'=>'Please input your address',
+           'email'=>'Please input your email',
+           'contact'=>'Please input your contact',
+           'map'=>'Please input your map',
            // 'descriptionone'=>'Please input your Short description',
-           'title'=>'Please input your title',
            // 'pak'=>'Please input your Long description',
            // 'description'=>'Please input your Long description',
 
        ]);
-                // Aboute::create($request->all());
-            Aboute::insert([
-            'title'=>$request->title,
-            'short_des'=>$request->short_des,
-            'long_des'=>$request->long_des,
+             Contact::insert([
+            'address'=>$request->address,
+            'email'=>$request->email,
+            'contact'=>$request->contact,
+            'map'=>$request->map,
         ]);
-       return redirect('/about')->with('success','About created successfully!');
-
-
-
+       return redirect('/contact')->with('success','About created successfully!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Aboute  $aboute
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Aboute $aboute)
+    public function show(Contact $contact)
     {
         //
     }
@@ -75,10 +83,10 @@ class AbouteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Aboute  $aboute
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Aboute $aboute)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -87,10 +95,10 @@ class AbouteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Aboute  $aboute
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Aboute $aboute)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -98,10 +106,10 @@ class AbouteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Aboute  $aboute
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Aboute $aboute)
+    public function destroy(Contact $contact)
     {
         //
     }

@@ -85,8 +85,8 @@
               </a>
             </li>
             <li>
-              <a href="#">
-                <i class="mdi mdi-email"></i>Update Password
+              <a href="{{route('profile.password')}}">
+                <i class="mdi mdi-email"></i> Update Password
 
               </a>
             </li>

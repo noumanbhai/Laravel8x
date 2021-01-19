@@ -73,4 +73,5 @@ Route::get('/book', function () {
 // {
 // 	return view('Profile.updateProfile');
 // });
-Route::view('update','profile.updateProfile')->name('profile.update');
+Route::view('/profile/update','profile.updateProfile')->name('profile.update');
+Route::view('/profile/password','profile.passwordProfile')->name('profile.password');

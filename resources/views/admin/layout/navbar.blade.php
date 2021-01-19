@@ -67,26 +67,27 @@
         <!-- User Account -->
         <li class="dropdown user-menu">
           <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-            <img src="{{asset('assets/img/user/user.png')}}" class="user-image" alt="User Image" />
-            <span class="d-none d-lg-inline-block">Abdus Salam</span>
+            <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"  class="user-image" alt="User Image" />
+    <span class="d-none d-lg-inline-block">{{ Auth::user()->name }}</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-right">
             <!-- User image -->
             <li class="dropdown-header">
-              <img src="{{asset('assets/img/user/user.png')}}" class="img-circle" alt="User Image" />
-              <div class="d-inline-block">
-                Abdus Salam <small class="pt-1">iamabdus@gmail.com</small>
+              <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="img-circle" alt="User Image" />
+              <div class="d-inline-block">{{ Auth::user()->name }}
+<small class="pt-1">{{Auth::user()->email }}</small>
               </div>
             </li>
 
             <li>
-              <a href="user-profile.html">
+              <a href="{{route('profile.update')}}">
                 <i class="mdi mdi-account"></i> My Profile
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="mdi mdi-email"></i> Message
+                <i class="mdi mdi-email"></i>Update Password
+
               </a>
             </li>
             <li>

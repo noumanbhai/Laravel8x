@@ -22,6 +22,7 @@ Route::get('/email/verify', function () {
 Route::get('/','HomeController@index');
 // Frontend Contacts
 Route::get('/contacts','HomeController@contact');
+Route::get('/profile','HomeController@profile');
 
 
 
@@ -67,3 +68,9 @@ Route::get('user/logout','MultipicsController@logout')->name('user.logout');
 Route::get('/book', function () {
     return view('admin.main');
 });
+
+// Route('/profiles',function()
+// {
+// 	return view('Profile.updateProfile');
+// });
+Route::view('update','profile.updateProfile')->name('profile.update');

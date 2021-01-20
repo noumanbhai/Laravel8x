@@ -93,6 +93,12 @@
             <li>
               <a href="{{route('profile.factorauth')}}"> <i class="mdi mdi-diamond-stone"></i>Two Factor Auth </a>
             </li>
+             <li>
+              <a href="{{route('profile.disableauh')}}"> <i class="mdi mdi-delete"></i>Disable Auth</a>
+            </li>
+           <li>
+              <a href="{{route('profile.browser-session')}}"> <i class="mdi mdi-browser"></i>Browser Session</a>
+            </li>
             <li class="right-sidebar-in">
               <a href="javascript:0"> <i class="mdi mdi-settings"></i> Setting </a>
             </li>

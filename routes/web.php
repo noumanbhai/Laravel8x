@@ -81,3 +81,8 @@ Route::view('/profile/password','profile.passwordProfile')->name('profile.passwo
 
 // TwoTwo Factor Authentication
 Route::view('/profile/factorauth','profile.factorauth')->name('profile.factorauth');
+// Disable Auth
+Route::view('/profile/disableauh','profile.disableauh
+')->name('profile.disableauh');
+// Browser Session
+Route::view('/profile/browsersession','profile.browser-session')->name('profile.browser-session');

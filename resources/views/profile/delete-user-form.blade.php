@@ -1,9 +1,13 @@
+ <div class="col-12 col-md-9 " >
 <x-jet-action-section>
     <x-slot name="title">
+     <div class="card-header card-header-border-bottom text-dark">
         {{ __('Delete Account') }}
+    </div>
     </x-slot>
 
     <x-slot name="description">
+
         {{ __('Permanently delete your account.') }}
     </x-slot>
 
@@ -13,7 +17,7 @@
         </div>
 
         <div class="mt-5">
-            <x-jet-danger-button wire:click="confirmUserDeletion" wire:loading.attr="disabled">
+            <x-jet-danger-button class="btn btn-danger" wire:click="confirmUserDeletion" wire:loading.attr="disabled">
                 {{ __('Delete Account') }}
             </x-jet-danger-button>
         </div>
@@ -21,7 +25,9 @@
         <!-- Delete User Confirmation Modal -->
         <x-jet-dialog-modal wire:model="confirmingUserDeletion">
             <x-slot name="title">
+                <b class="text-dark">
                 {{ __('Delete Account') }}
+                </b>
             </x-slot>
 
             <x-slot name="content">
@@ -34,19 +40,20 @@
                                 wire:model.defer="password"
                                 wire:keydown.enter="deleteUser" />
 
-                    <x-jet-input-error for="password" class="mt-2" />
+                    <x-jet-input-error for="password" class="mt-2 text-danger" />
                 </div>
             </x-slot>
 
             <x-slot name="footer">
-                <x-jet-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                <x-jet-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled" class="btn btn-info">
                     {{ __('Nevermind') }}
                 </x-jet-secondary-button>
 
-                <x-jet-danger-button class="ml-2" wire:click="deleteUser" wire:loading.attr="disabled">
+                <x-jet-danger-button class="ml-2 btn btn-danger" wire:click="deleteUser" wire:loading.attr="disabled">
                     {{ __('Delete Account') }}
                 </x-jet-danger-button>
             </x-slot>
         </x-jet-dialog-modal>
     </x-slot>
 </x-jet-action-section>
+</div>

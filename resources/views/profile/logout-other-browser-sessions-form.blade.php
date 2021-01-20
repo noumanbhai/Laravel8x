@@ -1,6 +1,10 @@
+ <div class="col-12 col-md-9 " >
 <x-jet-action-section>
     <x-slot name="title">
+  <div class="card-header card-header-border-bottom text-dark">
+
         {{ __('Browser Sessions') }}
+    </div>
     </x-slot>
 
     <x-slot name="description">
@@ -13,13 +17,16 @@
         </div>
 
         @if (count($this->sessions) > 0)
-            <div class="mt-5 space-y-6">
+            <div class="text-center"style="  
+  margin: auto;
+  width: 50%;
+  padding: 10px;"
+>
                 <!-- Other Browser Sessions -->
                 @foreach ($this->sessions as $session)
-                    <div class="flex items-center">
-                        <div>
+                        <div al>
                             @if ($session->agent->isDesktop())
-                                <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8 text-gray-500">
+                                <svg width="82" height="82" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8 text-gray-500">
                                     <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                 </svg>
                             @else
@@ -29,29 +36,29 @@
                             @endif
                         </div>
 
-                        <div class="ml-3">
-                            <div class="text-sm text-gray-600">
+                        <div class="text-center" style="text-align: center;">
+                            <div class="text-center">
                                 {{ $session->agent->platform() }} - {{ $session->agent->browser() }}
                             </div>
 
                             <div>
-                                <div class="text-xs text-gray-500">
+                                <div class="text-xs text-gray-500" style="text-align: center;">
                                     {{ $session->ip_address }},
 
                                     @if ($session->is_current_device)
-                                        <span class="text-green-500 font-semibold">{{ __('This device') }}</span>
+         <span>{{ __('This device') }}</span>
                                     @else
                                         {{ __('Last active') }} {{ $session->last_active }}
                                     @endif
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
                 @endforeach
             </div>
         @endif
 
-        <div class="flex items-center mt-5">
+        <div class="flex text-center">
             <x-jet-button wire:click="confirmLogout" wire:loading.attr="disabled">
                 {{ __('Logout Other Browser Sessions') }}
             </x-jet-button>
@@ -95,3 +102,4 @@
         </x-jet-dialog-modal>
     </x-slot>
 </x-jet-action-section>
+</div>

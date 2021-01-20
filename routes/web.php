@@ -78,3 +78,6 @@ Route::get('/book', function () {
 // custom profile setub
 Route::view('/profile/update','profile.updateProfile')->name('profile.update');
 Route::view('/profile/password','profile.passwordProfile')->name('profile.password');
+
+// TwoTwo Factor Authentication
+Route::view('/profile/factorauth','profile.factorauth')->name('profile.factorauth');

@@ -91,7 +91,7 @@
               </a>
             </li>
             <li>
-              <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
+              <a href="{{route('profile.factorauth')}}"> <i class="mdi mdi-diamond-stone"></i>Two Factor Auth </a>
             </li>
             <li class="right-sidebar-in">
               <a href="javascript:0"> <i class="mdi mdi-settings"></i> Setting </a>

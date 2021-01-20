@@ -1,19 +1,22 @@
+ <div class="col-12 col-md-9">
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        <div class="card-header card-header-border-bottom text-dark">
+  {{ __('Profile Information') }}
+</div>
     </x-slot>
 
     <x-slot name="description">
         {{ __('Update your account\'s profile information and email address.') }}
     </x-slot>
-
+{{-- <div class="text-center"> --}}
     <x-slot name="form">
         <!-- Profile Photo -->
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-            <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
+            <div x-data="{photoName: null, photoPreview: null}" class="text-center disabled">
                 <!-- Profile Photo File Input -->
-                <input type="file" class="hidden"
-                            wire:model="photo"
+                <input type="file" 
+                            wire:model="photo" style="ddisplay: none;     visibility: hidden;"
                             x-ref="photo"
                             x-on:change="
                                     photoName = $refs.photo.files[0].name;
@@ -23,12 +26,14 @@
                                     };
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
+        {{-- <label for="" class="justify-content-center">Photo</label> --}}
 
-                <x-jet-label for="photo" value="{{ __('Photo') }}" />
 
                 <!-- Current Profile Photo -->
+                <label for="" class="text-dark" style="margin-left:-275px;">Photo</label>
                 <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+                {{-- <x-jet-label for="photo" value="{{ __('Photo') }}" class="text-center"/> --}}
+                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover img-thumbnail " style="width:80px;height:80px; ">
                 </div>
 
                 <!-- New Profile Photo Preview -->
@@ -38,12 +43,12 @@
                     </span>
                 </div>
 
-                <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
+                <x-jet-secondary-button class="btn btn-primary mt-2" type="button" x-on:click.prevent="$refs.photo.click()">
                     {{ __('Select A New Photo') }}
                 </x-jet-secondary-button>
 
                 @if ($this->user->profile_photo_path)
-                    <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
+                    <x-jet-secondary-button type="button" class="btn btn-danger mt-2" wire:click="deleteProfilePhoto">
                         {{ __('Remove Photo') }}
                     </x-jet-secondary-button>
                 @endif
@@ -51,7 +56,7 @@
                 <x-jet-input-error for="photo" class="mt-2" />
             </div>
         @endif
-
+{{-- </div> --}}
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name" value="{{ __('Name') }}" />
@@ -77,3 +82,4 @@
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>
+</div>

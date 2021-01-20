@@ -1,3 +1,4 @@
+ <div class="col-12 col-md-9 " style="border:2px solid red;">
 <x-jet-action-section>
     <x-slot name="title">
         {{ __('Two Factor Authentication') }}
@@ -81,3 +82,4 @@
         </div>
     </x-slot>
 </x-jet-action-section>
+</div>

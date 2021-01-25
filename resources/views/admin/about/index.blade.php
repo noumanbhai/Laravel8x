@@ -33,8 +33,8 @@
             <th scope="col">Action</th>
           </tr>
         </thead>
+      @if($aboutes->count())
         <tbody>
-
           @foreach($aboutes as $aboute)
 
           <tr>
@@ -62,8 +62,13 @@
   </td>
 </tr>
 @endforeach
+@else
 </tbody>
 </table>
+  <p class="notfound">
+  Not data found
+  </p>
+ @endif
 
  <div class="flex items-center justify-between">{{ $aboutes->links() }}
  </div> 

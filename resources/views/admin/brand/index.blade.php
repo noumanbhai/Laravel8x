@@ -30,6 +30,7 @@
             <th scope="col">Action</th>
           </tr>
         </thead>
+      @if($brands->count())
         <tbody>
 
           @foreach($brands as $brand)
@@ -52,8 +53,13 @@
   </td>
 </tr>
 @endforeach
+@else
 </tbody>
 </table>
+  <p class="notfound">
+  Not data found
+  </p>
+ @endif
 
  <div class="flex items-center justify-between">{{ $brands->links() }}
  </div> 

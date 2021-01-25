@@ -25,11 +25,11 @@ Route::get('/contacts','HomeController@contact');
 Route::get('/profile','HomeController@profile');
 
 
+Route::resource('/form','FormController');
 
 // Auth Middleware is use only Auth working
 Route::group(['middleware' => ['auth']], function() {
 // Frontend Contacts
-Route::resource('/form','FormController');
 // Contact controller
 Route::resource('/contact','ContactController');
 // Slider controller

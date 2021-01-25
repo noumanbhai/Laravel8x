@@ -12,7 +12,7 @@
 <div class="d-flex justify-content-between align-items-center">
 <h2>Contact</h2>
 <ol>
-<li><a href="index.html">Home</a></li>
+<li><a href="/">Home</a></li>
 <li>Contact</li>
 </ol>
 </div>
@@ -20,14 +20,15 @@
 </div>
 </section><!-- End Breadcrumbs -->
 
-<div class="map-section m-0">
+@if($contacts->count())
+<center><div class="map-section m-0">
 
-<div style="border:0; width: 100%; height: 350px;" > 
+<div class="row" > 
+<div class="col-md-12">
 {!! $contacts->first()->map !!}
 </div>
 </div>
-
-
+</div></center>
 
 <section id="contact" class="contact">
 <div class="container">
@@ -53,17 +54,21 @@
 <div class="col-lg-4 info mt-4 mt-lg-0">
 <i class="icofont-phone"></i>
 <h4>Call:</h4>
-<p>+92{!! $contacts->first()->contact !!}</p>
+<p>{!! $contacts->first()->contact !!}</p>
 </div>
 </div>
+</div>
+@else
+  <p class="notfound mt-2">
+  Not data found
+  </p>
+ @endif
 </div>
 
 </div>
 
-</div>
-
-<div class="row mt-5 justify-content-center" data-aos="fade-up">
-<div class="col-lg-10">
+<div class="row mt-5 justify-content-center" data-aos="fade-up" id="pak">
+<div class="col-lg-10" >
 <div class="php-email-form">
 @if ($message = Session::get('success'))
 <div class="alert alert-success alert-block">
@@ -101,7 +106,7 @@
 @enderror
 </div>
 
-<div class="text-center">
+<div class="text-center mb-2">
 <button class="btn btn-primary" type="submit">Submit</button>
 {{-- <input type="submit" name="submit" class="btn btn-primary"> --}}
 {{-- style="    

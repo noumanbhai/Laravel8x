@@ -39,12 +39,16 @@ class AbouteController extends Controller
     {
             $validatedData= $request->validate([
             'title' => 'required',
+            'short' => 'required',
+            'long' => 'required',
             // 'pak' => 'required|min:3|max:1000',
             // 'description' => 'required'
         ],
         [
            // 'descriptionone'=>'Please input your Short description',
            'title'=>'Please input your title',
+           'short'=>'Please input your title',
+           'long'=>'Please input your title',
            // 'pak'=>'Please input your Long description',
            // 'description'=>'Please input your Long description',
 

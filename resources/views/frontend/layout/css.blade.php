@@ -14,3 +14,5 @@
   <link href="{{asset('frontend/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="{{asset('frontend/assets/css/style.css')}}" rel="stylesheet">
+  {{-- Custom Css --}}
+  <link id="sleek-css" rel="stylesheet" href="{{asset('assets/css/custom.css')}}" />

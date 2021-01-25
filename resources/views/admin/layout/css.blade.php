@@ -11,6 +11,7 @@
   <link href="{{asset('assets/plugins/toastr/toastr.min.css')}}" rel="stylesheet" />
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="{{asset('assets/css/sleek.css')}}" />
+  <link id="sleek-css" rel="stylesheet" href="{{asset('assets/css/custom.css')}}" />
   <!-- FAVICON -->
   <link href="{{asset('assets/img/favicon.png')}}" rel="shortcut icon" />
 <!--

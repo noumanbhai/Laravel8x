@@ -41,6 +41,7 @@
                           <th scope="col">Action</th>
                       </tr>
                   </thead>
+                  @if($categorys->count())
                   <tbody>
 
                     @foreach($categorys as $category)
@@ -58,8 +59,13 @@
 </td>
                 </tr>
                 @endforeach
-            </tbody>
-        </table>
+@else
+</tbody>
+</table>
+  <p class="notfound">
+  Not data found
+  </p>
+ @endif
         {{ $categorys->links() }}
 
 

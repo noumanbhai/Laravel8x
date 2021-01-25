@@ -59,7 +59,14 @@ class FormController extends Controller
             'subject'=>$request->subject,
             'message'=>$request->message,
         ]);
-       return redirect('/contacts')->with('success','Form is Submit successfully!');
+       // return back()->with('success','Fowrm is Submit successfully!');
+            // return Redirect::route('contacts/#pak');
+                // return url('/contacts/#pak');
+            // return Request::is('#pak');
+            return redirect(url()->previous() . '#pak');
+
+
+
     }
 
     /**

@@ -33,6 +33,7 @@
 <th scope="col">Action</th>
 </tr>
 </thead>
+@if($messages->count())
 <tbody>
 	@foreach ($messages as $message)
 <tr>
@@ -55,8 +56,13 @@
 </td>
 	@endforeach
 </tr>
+@else
 </tbody>
 </table>
+  <p class="notfound">
+  Not data found
+  </p>
+ @endif
 
 <div class="flex items-center justify-between">
 </div> 

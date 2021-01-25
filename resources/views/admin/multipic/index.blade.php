@@ -32,61 +32,60 @@
           <div class="card-header"><u>Multi Images</u>
           </div>
           <table class="table table-hover">
-
+            @if($images->count())
             <tbody>
 
               @foreach($images as $image)
- <!--              <div class="col-md-4">
+<!--              <div class="col-md-4">
 
-                <div class="card" style="width: 18rem;">
-                  <ul class="list-group list-group-flush">
-                   <li> <img src="{{ URL::to('/') }}/multipic/{{ $image->image }}" class="img-thumbnail" width="50" height="50" />
-                   </li></ul>
-                 </div></div> -->
+<div class="card" style="width: 18rem;">
+<ul class="list-group list-group-flush">
+<li> <img src="{{ URL::to('/') }}/multipic/{{ $image->image }}" class="img-thumbnail" width="50" height="50" />
+</li></ul>
+</div></div> -->
 <div class="container">
 
   <div style="width:200px">
-<img src="{{ URL::to('/') }}/multipic/{{ $image->image }}" class="img-thumbnail" style="width:30%">
-    </div>
+    <img src="{{ URL::to('/') }}/multipic/{{ $image->image }}" class="img-thumbnail" style="width:30%">
   </div>
-  <br>
+</div>
+<br>
 
-                 @endforeach
-               </tbody>
-               </table>
-               {{ $images->links() }}
+@endforeach
+@else
+</tbody>
+</table>
+<p class="notfound">
+  Not data found
+</p>
+@endif
+{{ $images->links() }}
 
-     <!--      @if(empty($categorys))
-          @else
-          <div class="alert alert-warning" role="alert">
-            Record is not Found
-        </div>
-        @endif -->
 
-      </div>
+</div>
 
-      <div class="col-md-4">
-        <div class="card-header"><u>Create Brand</u></div>
-        <form action="{{route('multipics.store')}}" method="POST" enctype="multipart/form-data">
-          @csrf
+<div class="col-md-4">
+  <div class="card-header"><u>Create Brand</u></div>
+  <form action="{{route('multipics.store')}}" method="POST" enctype="multipart/form-data">
+    @csrf
 
-          <!-- image -->
-          <div class="form-group">
-            <label for="image">Brand Image</label>
-            <input type="file" class="form-control" name="images[]" id="image" multiple>
-            @error('brand_image')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-
-          </div>
-
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
-      </div>
+    <!-- image -->
+    <div class="form-group">
+      <label for="image">Brand Image</label>
+      <input type="file" class="form-control" name="images[]" id="image" multiple>
+      @error('brand_image')
+      <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
 
     </div>
-  </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+</div>
+</div>
 </div>
 
 

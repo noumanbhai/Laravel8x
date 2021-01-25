@@ -12,6 +12,7 @@
           <h2>About Us</strong></h2>
         </div>
         <div class="row content">
+          @if($aboutes->count())
           <div class="col-lg-6" data-aos="fade-right">
             <h2>{{ $aboutes->first()->title }}</h2>
             <h3>{{ $aboutes->first()->short_des }}</h3>
@@ -21,7 +22,13 @@
             {{ $aboutes->first()->long_des }}.
           </p>
           </div>
+          @else
+
         </div>
+  <p class="notfound">
+  Not data found
+  </p>
+ @endif
 
       </div>
     </section><!-- End About Us Section -->

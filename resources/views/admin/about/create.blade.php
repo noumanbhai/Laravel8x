@@ -22,14 +22,14 @@
               <div class="col-md-12 mb-3">
                 <label for="short_des">Short Description</label>
                 <textarea name="short_des" class="form-control" id="short_des" cols="30" rows="5" placeholder="Short description"></textarea>
-              @error('pak')
+              @error('short')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>
               <div class="col-md-12 mb-3">
                 <label for="long_des">Long Description</label>
                 <textarea name="long_des" class="form-control" id="long_des" cols="30" rows="5" placeholder="Long description"></textarea>
-                @error('description')
+                @error('long')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>

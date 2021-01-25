@@ -27,4 +27,5 @@ class HomeController extends Controller
 		$contacts=Contact::get();
 		return view('frontend.pages.contact',compact('contacts'));
 	}
+
 }
